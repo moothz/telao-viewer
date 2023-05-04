@@ -1,6 +1,8 @@
 # telao-viewer
  Mostra de a 1 telas em um monitor 4K
- ⚠️ Códido legado. Não contém boas práticas.
+ Se quiser que mostrem em um monitor FullHD, só colocar o zoom em 50%
+
+ ⚠️ **Atenção**: Códido legado. *Não* contém boas práticas.
 
 
 ## Como instalar
