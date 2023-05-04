@@ -39,9 +39,6 @@ switch ($request["acao"]){
 	case "getTela":
 		echo json_encode(getTela($request["id"]));
 		break;
-	case "gerarThumbnail":
-		gerarThumbnail();
-		break;
 	default:
 		$r = array("erro" => "Ação inválida: '".$request["acao"]."'");
 		die(json_encode($r));
@@ -136,30 +133,30 @@ function uploadArquivo($arquivo,$idTela,$posicao){
 			$out = "tmp_name: '".$arquivo["tmp_name"]."'' / arquivoDest: '$arquivoDest' / caminhoThumb: '$caminhoThumb' => '$resMove'\n";
 
 			// Processa thumbnail
-			$source = "/var/www/html/TelaoCT/$caminhoArquivo";
-			$dest = "/var/www/html/TelaoCT/$caminhoThumb";
+			$source = $arquivoDest;
+			$dest = CONFIG_DIRETORIO_TELAO.$caminhoThumb;
 
-			$duracao = shell_exec("/usr/bin/ffprobe $source -show_format 2>&1 | sed -n 's/duration=//p'");
+			$duracao = shell_exec(CONFIG_FFPROBE." $source -show_format 2>&1 | sed -n 's/duration=//p'");
 			if($duracao == null){
 				$duracao = "0";
 			}
 			$duracao = floatval(preg_replace('/\s+/', '', $duracao));
-			$out .= "/usr/bin/ffprobe $source -show_format 2>&1 | sed -n 's/duration=//p' => '$duracao'";
+			$out .= CONFIG_FFPROBE." $source -show_format 2>&1 | sed -n 's/duration=//p' => '$duracao'";
 
-			$nomeTemp = "/var/www/html/tct/tmp/".generateRandomString(20);
+			$nomeTemp = CONFIG_DIRETORIO_TELAO."admin/tmp/".generateRandomString(20);
 
 			if($duracao == 0){
 				$duracao = 50;
 			}
 			$fator = 5/$duracao;
 			
-			$strCmd = '/usr/bin/ffmpeg -y -i '.$source.' -an -filter:v "setpts='.$fator.'*PTS" '.$nomeTemp.'.mp4';
+			$strCmd = CONFIG_FFMPEG.' -y -i '.$source.' -an -filter:v "setpts='.$fator.'*PTS" '.$nomeTemp.'.mp4';
 			$out .= $strCmd."\n";
 			$out .= shell_exec($strCmd);
-			$strCmd = '/usr/bin/ffmpeg -y -i '.$nomeTemp.'.mp4 -vf palettegen '.$nomeTemp.'.png';
+			$strCmd = CONFIG_FFMPEG.' -y -i '.$nomeTemp.'.mp4 -vf palettegen '.$nomeTemp.'.png';
 			$out .= $strCmd."\n";
 			$out .= shell_exec($strCmd);
-			$strCmd = '/usr/bin/ffmpeg -y -i '.$nomeTemp.'.mp4 -i '.$nomeTemp.'.png -filter_complex paletteuse -r 10 -s 191x108 '.$dest;
+			$strCmd = CONFIG_FFMPEG.' -y -i '.$nomeTemp.'.mp4 -i '.$nomeTemp.'.png -filter_complex paletteuse -r 10 -s 191x108 '.$dest;
 			$out .= $strCmd."\n";
 			$out .= shell_exec($strCmd);
 
@@ -383,17 +380,6 @@ function getTelas(){
 	}
 
 	return $retorno;
-}
-
-
-
-function gerarThumbnail(){
-	$time_start = microtime(true); 
-
-	include("thumbnails.php");
-
-	$execution_time = (microtime(true) - $time_start);
-	echo "<b>Total Execution Time:</b> $execution_time secs";
 }
 
 function generateRandomString($length = 10) {

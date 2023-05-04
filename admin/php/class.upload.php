@@ -1717,7 +1717,7 @@ class Upload {
     /**
      * Array of translated error messages
      *
-     * By default, the language is english (en_GB)
+     * By default, the language is english (pt_BR)
      * Translations can be in separate files, in a lang/ subdirectory
      *
      * @access public
@@ -1728,7 +1728,7 @@ class Upload {
     /**
      * Language selected for the translations
      *
-     * By default, the language is english ("en_GB")
+     * By default, the language is english ("pt_BR")
      *
      * @access public
      * @var array
@@ -2086,7 +2086,7 @@ class Upload {
     /**
      * Constructor, for PHP5+
      */
-    function  __construct($file, $lang = 'en_GB')  {
+    function  __construct($file, $lang = 'pt_BR')  {
         $this->upload($file, $lang);
     }
 
@@ -2114,7 +2114,7 @@ class Upload {
      *    or   string $file Local filename
      * @param  string $lang Optional language code
      */
-    function upload($file, $lang = 'en_GB') {
+    function upload($file, $lang = 'pt_BR') {
 
         $this->version            = '09/12/2022';
 
@@ -2204,13 +2204,13 @@ class Upload {
 
         // determines the language
         $this->lang               = $lang;
-        if ($this->lang != 'en_GB' && file_exists(dirname(__FILE__).'/lang') && file_exists(dirname(__FILE__).'/lang/class.upload.' . $lang . '.php')) {
+        if ($this->lang != 'pt_BR' && file_exists(dirname(__FILE__).'/lang') && file_exists(dirname(__FILE__).'/lang/class.upload.' . $lang . '.php')) {
             $translation = null;
             include(dirname(__FILE__).'/lang/class.upload.' . $lang . '.php');
             if (is_array($translation)) {
                 $this->translation = array_merge($this->translation, $translation);
             } else {
-                $this->lang = 'en_GB';
+                $this->lang = 'pt_BR';
             }
         }
 

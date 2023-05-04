@@ -1,17 +1,23 @@
 <?php
 
 define("MYSQL_SERVER","localhost");
-define("MYSQL_USER","nupedee");
-define("MYSQL_PASS","0Blw6fXVN2RCFnFQ");
+define("MYSQL_DB","telao");
+define("MYSQL_USER","usuario");
+define("MYSQL_PASS","senha");
 
-define("CONFIG_SENHA_ADM","abrileomaiscrueldosmeses");
-//define("CONFIG_SENHA_ADM","testarosistemapraver");
-define("CONFIG_DIRETORIO_TELAO","/var/www/html/TelaoCT/");
 
-function mysqliConn($db="telaoCT"){
-	
+// Caminho completo para o FFMPEG e FFPROBE
+// Usados para compactar os vídeos e criar thumbnails
+define("CONFIG_FFMPEG","/usr/bin/ffmpeg");
+define("CONFIG_FFPROBE","/usr/bin/ffprobe");
 
-	$con = new PDO("mysql:host=".MYSQL_SERVER.";dbname=$db", MYSQL_USER, MYSQL_PASS);
+
+define("CONFIG_SENHA_ADM","senha_administracao");
+define("CONFIG_DIRETORIO_TELAO","/var/www/html/telao/");
+define("CONFIG_URL","/telao/");
+
+function mysqliConn(){
+	$con = new PDO("mysql:host=".MYSQL_SERVER.";dbname=".MYSQL_DB, MYSQL_USER, MYSQL_PASS);
 	if (!$con){
 		die("Erro no MYSQL: " . mysql_error());
 	}

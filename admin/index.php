@@ -1,19 +1,11 @@
 <?php 
 	require_once("php/protege.php");
-// 	$inipath = php_ini_loaded_file();
-
-// if ($inipath) {
-//     echo 'Loaded php.ini: ' . $inipath;
-// } else {
-//    echo 'A php.ini file is not loaded';
-// }
-
 	$cacheFix = "?c=".rand(1000,10000); 
-	$hoje = date("Y-m-d",strtotime("today + 7 days"));
+	$dataLimite = date("Y-m-d",strtotime("today + 7 days"));
 ?><!DOCTYPE html>
 <html>
 <head>
-	<title>Administração Telão CT</title>
+	<title>Administração Telão</title>
 	<link rel="stylesheet" type="text/css" href="css/fa.css">
 	<link rel="stylesheet" type="text/css" href="css/principal.css<?php  echo $cacheFix; ?>">
 	<meta charset="utf-8">
@@ -137,7 +129,7 @@
 				<div id="dadosTela">
 					Nome: <input type="text" id="valor-nome" placeholder="Nome de referência"><br>
 					Tempo de exibição (s): <input type="number" id="valor-duracao" value="10" style="width: 40px;"><br>
-					Data Limite: <input type="date" id="valor-data" value="<?php echo $hoje; ?>" style="width: 130px;"><br>
+					Data Limite: <input type="date" id="valor-data" value="<?php echo $dataLimite; ?>" style="width: 130px;"><br>
 					Tipo de exibição: <button id="botao-escolher-tipo">Escolher Tipo</button>
 					<div style="position: relative;">
 						<div id="seletor-tipo">
