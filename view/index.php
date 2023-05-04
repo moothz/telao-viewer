@@ -1,14 +1,10 @@
 <?php
-require_once("funcoes.php");
-$telas = getTelas();
-//print_r($telas);
-
-
+	require_once("funcoes.php");
+	$telas = getTelas();
 ?>
 <html>
 <head>
-	<title>Telão CT</title>
-	<!-- <meta http-equiv="refresh" content="0; url=http://farol.ufsm.br/transmissao/aovivo/430-transmissao-ao-vivo-debate-eleicoes-ufsm-19062017-10h"> -->
+	<title>Telão</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="estilos.css" type="text/css" />
 	<link rel="stylesheet" href="estilosAvaliacao.css" type="text/css" />
@@ -66,83 +62,6 @@ $telas = getTelas();
 			console.log(window.paginaAtual);
 			
 			switch(window.paginaAtual){
-				/*
-				//Fixo para mostrar resultados da auto avaliaca
-				case 1:
-					$('.container').fadeOut(window.tFadeOut);
-					$("#autoavaliacao-graficos1").fadeIn(window.tFadeIn);
-
-
-					$.getJSON('dadosAvaliacao/graduacao.php', function(json) {
-						resetCanvas("alunosGraduacao");
-						var ctx = $("#alunosGraduacao").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					$.getJSON('dadosAvaliacao/posgraduacao.php', function(json) {
-						resetCanvas("alunosPosGraduacao");
-						var ctx = $("#alunosPosGraduacao").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					$.getJSON('dadosAvaliacao/professores.php', function(json) {
-						console.log(json);
-						resetCanvas("docentes");
-						var ctx = $("#docentes").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-
-					console.log("1 - Graficos 1");
-					window.timeoutAtual = setTimeout(togglePaginas,20000);
-					break;
-
-				case 2:
-					$('.container').fadeOut(window.tFadeOut);
-					$("#autoavaliacao-graficos2").fadeIn(window.tFadeIn);
-
-					$.getJSON('dadosAvaliacao/funcionarios.php', function(json) {
-						resetCanvas("tecAdministrativos");
-						var ctx = $("#tecAdministrativos").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					$.getJSON('dadosAvaliacao/funcionarios2.php', function(json) {
-						resetCanvas("tecAdministrativos2");
-						var ctx = $("#tecAdministrativos2").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					$.getJSON('dadosAvaliacao/gestores.php', function(json) {
-						resetCanvas("gestores");
-						var ctx = $("#gestores").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					console.log("2 - Graficos 2");
-					window.timeoutAtual = setTimeout(togglePaginas,20000);
-					break;
-					
-				case 3:
-					$('.container').fadeOut(window.tFadeOut);
-					$("#autoavaliacao-graficos3").fadeIn(window.tFadeIn);
-
-					$.getJSON('dadosAvaliacao/dadosFinaisUFSM.php', function(json) {
-						resetCanvas("graficoDadosUFSM");
-						var ctx = $("#graficoDadosUFSM").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					$.getJSON('dadosAvaliacao/dadosFinaisCT.php', function(json) {
-						resetCanvas("graficoDadosCT");
-						var ctx = $("#graficoDadosCT").get(0).getContext("2d");
-						new Chart(ctx).HorizontalBar(json,window.graphOptions);
-					});
-
-					console.log("3 - Graficos 3");
-					window.timeoutAtual = setTimeout(togglePaginas,20000);
-					break;
-					*/
 				<?php
 				$i = 1;
 				$anterior = end($telas);
@@ -170,73 +89,6 @@ $telas = getTelas();
 	</script>
 </head>
 <body style="background-color:#FFFFFF; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;">
-<!--
-<div id="autoavaliacao-graficos1" class="containerGraficos container">
-	<img src="enfeiteAvaliacao.png" class="enfeiteAvaliacao" />
-	<div class="containerTituloGrafico top-left"></div>
-	<div class="containerGrafico top-left">
-		
-	</div>
-	<div class="containerTituloGrafico top-right">Discentes Graduação</div>
-	<div class="containerGrafico top-right">
-		<canvas id="alunosGraduacao" width="1800" height="800"></canvas>
-		
-	</div>
-	<div class="containerTituloGrafico bottom-left">Docentes</div>
-	<div class="containerGrafico bottom-left">
-		<canvas id="docentes" width="1800" height="800"></canvas>
-	</div>
-	<div class="containerTituloGrafico bottom-right">Discentes Pós-Graduação</div>
-	<div class="containerGrafico bottom-right">
-		<canvas id="alunosPosGraduacao" width="1800" height="800"></canvas>
-	</div>
-
-</div>
-
-<div id="autoavaliacao-graficos2" class="containerGraficos container">
-	<img src="enfeiteAvaliacao.png" class="enfeiteAvaliacao" />
-	<div class="containerTituloGrafico top-left"></div>
-	<div class="containerGrafico top-left">
-		
-	</div>
-	<div class="containerTituloGrafico top-right">Técnicos Administrativos</div>
-	<div class="containerGrafico top-right">
-		<canvas id="tecAdministrativos" width="1800" height="800"></canvas>
-		
-	</div>
-	<div class="containerTituloGrafico bottom-left">Gestores</div>
-	<div class="containerGrafico bottom-left">
-		<canvas id="gestores" width="1800" height="800"></canvas>
-	</div>
-	<div class="containerTituloGrafico bottom-right">Técnicos Administrativos</div>
-	<div class="containerGrafico bottom-right">
-		<canvas id="tecAdministrativos2" width="1800" height="800"></canvas>
-	</div>
-
-</div>
-
-<div id="autoavaliacao-graficos3" class="containerGraficos container">
-
-	<div class="containerTituloGrafico top-left"></div>
-	<div class="containerGrafico top-left">
-		
-	</div>
-	<div class="containerTituloGrafico top-right"></div>
-	<div class="containerGrafico top-right">
-		
-		
-	</div>
-	<div class="containerTituloGrafico bottom-left"></div>
-	<div class="containerGrafico bottom-left">
-		<canvas id="graficoDadosUFSM" width="1800" height="900"></canvas>
-	</div>
-	<div class="containerTituloGrafico bottom-right"></div>
-	<div class="containerGrafico bottom-right">
-		<canvas id="graficoDadosCT" width="1800" height="800"></canvas>
-	</div>
-
-</div>
--->
 <?php
 foreach ($telas as $tela) {
 	echo "<!-- Exibindo conteudo da tela '".$tela["descricao"]."' -->\n";
@@ -253,7 +105,7 @@ foreach ($telas as $tela) {
 				break;
 		}
 		break;
-//".base64_encode($imagemMapa)
+
 		case 2:
 		$cont1 = getConteudoFromTelaRaw($tela["id"],0);
 		$cont2 = getConteudoFromTelaRaw($tela["id"],1);
@@ -336,11 +188,3 @@ foreach ($telas as $tela) {
 </audio>
 </body>
 </html>
-
-<!-- 
-
-
-
-
-
- -->

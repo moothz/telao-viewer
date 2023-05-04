@@ -1,8 +1,10 @@
 <?php
+require_once("../admin/config.php");
+
 function getConteudoFromTelaRaw($idTela,$posicao){
 	$retorno = NULL;
 	try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("SELECT id,tipo,posicao,dados FROM telaoCT.conteudo WHERE conteudo.idTela = ? AND conteudo.posicao = ?");
 		$stmt->bindParam(1, $idTela);
 		$stmt->bindParam(2, $posicao);
@@ -26,7 +28,7 @@ function getTelas(){
 
 	$retorno = array();
 	try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("SELECT * FROM telaoCT.telas WHERE dataLimite >= CURRENT_DATE() ORDER BY id ASC");
 
 		if($stmt->execute()){
@@ -45,7 +47,7 @@ function getTelas(){
 
 function inserirTela($duracao,$tipo,$descricao,$dataLimite){
 	try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("INSERT INTO  telaoCT.telas (duracao,tipo,descricao,dataLimite,ordem) VALUES (?,?,?,?,0);");
 
 		$stmt->bindParam(1, $duracao);
@@ -69,7 +71,7 @@ function inserirTela($duracao,$tipo,$descricao,$dataLimite){
 
 function atualizarTela($idTela,$duracao,$tipo,$descricao,$dataLimite){
 	try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("UPDATE telaoCT.telas SET duracao = ?, tipo = ?, descricao = ?,dataLimite = ? WHERE id = ?");
 
 		$stmt->bindParam(1, $duracao);
@@ -95,7 +97,7 @@ function atualizarTela($idTela,$duracao,$tipo,$descricao,$dataLimite){
 
 function inserirConteudo($idTela,$tipo,$posicao,$conteudo){
 	try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("INSERT INTO  telaoCT.conteudo (idTela,tipo,posicao,dados) VALUES (?,?,?,?);");
 
 		$stmt->bindParam(1, $idTela);
@@ -118,7 +120,7 @@ function inserirConteudo($idTela,$tipo,$posicao,$conteudo){
 
 function atualizarConteudo($id,$tipo,$conteudo){
 		try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("UPDATE  telaoCT.conteudo SET dados = ?, tipo = ? WHERE id = ?");
 
 		$stmt->bindParam(1, $conteudo);
@@ -143,7 +145,7 @@ function getConteudosList(){
 
 	$retorno = array();
 	try {
-		$con = mysqlConn();
+		$con = mysqliConn();
 		$stmt = $con->prepare("SELECT id,idTela,tipo,posicao FROM telaoCT.conteudo ORDER BY id");
 
 		if($stmt->execute()){
@@ -161,16 +163,6 @@ function getConteudosList(){
 }
 
 
-
-
-function mysqlConn(){
-	$con = new PDO("mysql:host=localhost;dbname=telaoCT", "nupedee", "0Blw6fXVN2RCFnFQ");
-	if (!$con){
-		die("Erro no MYSQL: " . mysql_error());
-	}
-	$con->exec("set names utf8");
-	return $con;
-}
 function generateRandomString($length = 10) {
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$charactersLength = strlen($characters);
@@ -180,7 +172,3 @@ function generateRandomString($length = 10) {
 	}
 	return $randomString;
 }
-
-
-?>
-
