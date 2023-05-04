@@ -1,8 +1,16 @@
 # telao-viewer
- Mostra de a 1 telas em um monitor 4K
+ Mostra de 1 a 4 telas em um monitor 4K
  Se quiser que mostrem em um monitor FullHD, só colocar o zoom em 50%
 
  ⚠️ **Atenção**: Códido legado. *Não* contém boas práticas.
+
+## Screenshots
+
+Criação de Telas
+![alt text](telao1.png)
+
+Atalhos
+![alt text](telao2.png)
 
 
 ## Como instalar
