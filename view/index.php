@@ -182,9 +182,5 @@ foreach ($telas as $tela) {
 	echo "\t</div>\n";
 }
 ?>
-
-<audio autoplay>
-<source src="kalimba.mp3" type="audio/mpeg">
-</audio>
 </body>
 </html>
