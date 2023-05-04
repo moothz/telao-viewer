@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<h1>Telão CT</h1>
+	<h1>Telão</h1>
 
 	<table class="container-edicao">
 		<tr>
