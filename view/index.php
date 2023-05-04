@@ -9,15 +9,8 @@
 	<link rel="stylesheet" href="estilos.css" type="text/css" />
 	<link rel="stylesheet" href="estilosAvaliacao.css" type="text/css" />
 	<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
-	<script type="text/javascript" src="chart.js"></script>
 
 	<script type="text/javascript">
-	function resetCanvas(id){
-		var elementoPai = $("#"+id).parent();
-		$("#"+id).remove(); // this is my <canvas> element
-		elementoPai.append('<canvas id="'+id+'" width="1800" height="800"><canvas>');
-	};
-
 	$(document).keypress(function(e) {
 	    if(e.which == 13) {
 	    	console.log("Trocando página...");
@@ -25,20 +18,6 @@
 		}
 	});
 		$(document).ready(function(){
-			window.graphOptions = {
-				scaleLineColor: "rgba(255,255,255,.5)",
-				scaleOverride: true,
-				scaleSteps: 2,
-				scaleStepWidth: 50,
-				scaleStartValue: 0,
-				scaleLineWidth: 2,
-				scaleLabel: "<%=value%>%",
-				scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-				scaleFontSize: 40,
-				scaleFontStyle: "normal",
-				scaleFontColor: "rgba(10,10,10,.6)"
-			}
-
 			window.tFadeOut = 800;
 			window.tFadeIn = 800;
 			window.timeoutAtual = setTimeout(togglePaginas,500);
