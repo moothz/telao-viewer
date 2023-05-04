@@ -6,11 +6,13 @@
 
 ## Screenshots
 
-Criação de Telas
+### Criação de Telas
 ![alt text](telao1.png)
 
-Atalhos
-![alt text](telao2.png)
+### Atalhos
+<p align="center">
+  <img width="460" height="300" src="telao2.png">
+</p>
 
 
 ## Como instalar
