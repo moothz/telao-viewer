@@ -7,11 +7,13 @@
 ## Screenshots
 
 ### Criação de Telas
-![alt text](telao1.png)
+<p align="center">
+  <img width="450"  src="telao1.png">
+</p>
 
 ### Atalhos
 <p align="center">
-  <img width="460" height="300" src="telao2.png">
+  <img width="450"  src="telao2.png">
 </p>
 
 
