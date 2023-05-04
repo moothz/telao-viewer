@@ -18,8 +18,9 @@
 
 
 ## Como instalar
-0. Baixar/clonar este repositorio e colocar os arqivos na pasta publica do servidor (ex.: /var/www/html)
-1. Instalar ffmpeg no sistema (completo, com ffprobe)
-2. Criar base de dados, usuário e senha
-3. Importar arquivo telao.sql para que as tabelas necessárias sejam criadas
-4. Editar o arquivo `admin/config.php` com os dados criados
+1. Baixar/clonar este repositorio e colocar os arqivos na pasta publica do servidor (ex.: /var/www/html)
+    i. O servidor web precisa estar com PHP instalado
+2. Instalar ffmpeg no sistema (completo, com ffprobe)
+3. Criar base de dados, usuário e senha
+4. Importar arquivo telao.sql para que as tabelas necessárias sejam criadas
+5. Editar o arquivo `admin/config.php` com os dados criados
