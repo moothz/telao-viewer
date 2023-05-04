@@ -24,3 +24,4 @@
 3. Criar base de dados, usuário e senha
 4. Importar arquivo telao.sql para que as tabelas necessárias sejam criadas
 5. Editar o arquivo `admin/config.php` com os dados criados
+6. Certifique-se que o usuário web (geralmente www-data) tem permissões para *ler e escrever* nas pastas `admin/tmp` e `view/arquivos`
