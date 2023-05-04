@@ -2,7 +2,7 @@
  Mostra de 1 a 4 telas em um monitor 4K
  Se quiser que mostrem em um monitor FullHD, só colocar o zoom em 50%
 
- ⚠️ **Atenção**: Códido legado. *Não* contém boas práticas.
+ ⚠️ **Atenção**: Códido legado de 10 anos atrás. *Não* contém boas práticas.
 
 ## Screenshots
 
