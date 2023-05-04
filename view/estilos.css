@@ -1,0 +1,187 @@
+/*Tipos
+
+1	Tela Toda
+
+2	1 Imagem por TV
+	X Y
+	Z W
+
+3	1 em cima, 2 embaixo
+	X X
+	Y Z
+
+4 	2 em cima, 1 embaixo
+	X Y
+	Z Z
+
+5	1 na esquerda, 2 na direita
+	X Y
+	X Z
+
+6	2 na esquerda, 1 na direita
+	X Y
+	Z Y
+*/
+
+
+.tipo_1_posicao_0{
+	width: 3840px;
+	height: 2160px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+}
+
+
+.tipo_2_posicao_0{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_2_posicao_1{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 1920px;
+	z-index: 100;
+}
+
+.tipo_2_posicao_2{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_2_posicao_3{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 1920px;
+	z-index: 100;
+}
+
+
+.tipo_3_posicao_0{
+	width: 3840px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_3_posicao_1{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_3_posicao_2{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 1920px;
+	z-index: 100;
+}
+
+.tipo_4_posicao_0{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_4_posicao_1{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 1920px;
+	z-index: 100;
+}
+
+.tipo_4_posicao_2{
+	width: 3840px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_5_posicao_0{
+	width: 1920px;
+	height: 2160px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_5_posicao_1{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 1920px;
+	z-index: 100;
+}
+
+.tipo_5_posicao_2{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 1920px;
+	z-index: 100;
+}
+
+
+.tipo_6_posicao_0{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_6_posicao_1{
+	width: 1920px;
+	height: 1080px;
+	position: fixed;
+	top: 1080px;
+	left: 0px;
+	z-index: 100;
+}
+
+.tipo_6_posicao_2{
+	width: 1920px;
+	height: 2160px;
+	position: fixed;
+	top: 0px;
+	left: 1920px;
+	z-index: 100;
+}
+
+.container{
+	display: none;
+	width: 100%;
+	height: 100%;
+}
