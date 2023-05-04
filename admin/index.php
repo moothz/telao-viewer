@@ -170,7 +170,7 @@
 		<table class="comandos">
 			<tr>
 				<td>
-					Envia conteúdo para o bloco
+					Enviar conteúdo para o bloco
 				</td>
 				<td>
 					<img src="css/img/mouse_esquerdo.png" class="icone">
